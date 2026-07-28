@@ -34,7 +34,15 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      [
+        "@clerk/expo",
+        {
+          "appleSignIn": false,
+          "keychainService": "com.example.myapp"
+        }
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
