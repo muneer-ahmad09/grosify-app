@@ -1,8 +1,11 @@
 import { ClerkProvider, useAuth } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
-import { Stack } from "expo-router";
+import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
+import { useColorScheme } from "react-native";
 
 function RootNavigator() {
+  let colorScheme = useColorScheme();
+
   const { isLoaded, isSignedIn } = useAuth();
 
   if (!isLoaded) {
@@ -10,15 +13,17 @@ function RootNavigator() {
   }
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Protected guard={isSignedIn}>
-        <Stack.Screen name="(home)" />
-      </Stack.Protected>
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Protected guard={isSignedIn}>
+          <Stack.Screen name="(home)" />
+        </Stack.Protected>
 
-      <Stack.Protected guard={!isSignedIn}>
-        <Stack.Screen name="(auth)" />
-      </Stack.Protected>
-    </Stack>
+        <Stack.Protected guard={!isSignedIn}>
+          <Stack.Screen name="(auth)" />
+        </Stack.Protected>
+      </Stack>
+    </ThemeProvider>
   );
 }
 
