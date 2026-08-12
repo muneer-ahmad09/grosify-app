@@ -5,8 +5,10 @@
   "dependencies": {
     "@clerk/expo": "^4.1.0",
     "@expo/ui": "~57.0.7",
+    "@expo/vector-icons": "^15.1.1",
     "babel-preset-expo": "^57.0.4",
     "expo": "~57.0.8",
+    "expo-auth-session": "~57.0.6",
     "expo-constants": "~57.0.7",
     "expo-dev-client": "~57.0.9",
     "expo-device": "~57.0.1",

@@ -42,7 +42,8 @@
           "keychainService": "com.example.myapp"
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,

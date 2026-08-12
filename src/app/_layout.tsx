@@ -1,7 +1,8 @@
 import { ClerkProvider, useAuth } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
-import { useColorScheme } from "react-native";
+import { Text, useColorScheme, View } from "react-native";
+import "../../global.css";
 
 function RootNavigator() {
   let colorScheme = useColorScheme();
@@ -9,7 +10,11 @@ function RootNavigator() {
   const { isLoaded, isSignedIn } = useAuth();
 
   if (!isLoaded) {
-    return null; // or a splash screen
+    return (
+      <View className="flex-1 items-center justify-center">
+        <Text>Loading Clerk...</Text>
+      </View>
+    );
   }
 
   return (
