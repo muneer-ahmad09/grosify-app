@@ -6,7 +6,10 @@
     "@clerk/expo": "^4.1.0",
     "@expo/ui": "~57.0.7",
     "@expo/vector-icons": "^15.1.1",
+    "@neondatabase/serverless": "^1.1.0",
     "babel-preset-expo": "^57.0.4",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^1.0.0-rc.4",
     "expo": "~57.0.8",
     "expo-auth-session": "~57.0.6",
     "expo-constants": "~57.0.7",
@@ -38,6 +41,8 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "drizzle-kit": "^1.0.0-rc.4",
+    "tsx": "^4.23.12",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -46,7 +51,9 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "db:push": "drizzle-kit push",
+    "seed:grocery": "node ./scripts/seed-grocery.cjs"
   },
   "private": true
 }

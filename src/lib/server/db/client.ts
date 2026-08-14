@@ -1,0 +1,16 @@
+import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-http";
+
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL is required for API routes.");
+}
+
+const sql = neon(databaseUrl);
+
+const db = drizzle({
+  client: sql,
+});
+
+export default db;
