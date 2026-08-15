@@ -1,8 +1,11 @@
 import { ClerkProvider, useAuth } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
+import * as WebBrowser from "expo-web-browser";
 import { Text, useColorScheme, View } from "react-native";
 import "../../global.css";
+
+WebBrowser.maybeCompleteAuthSession();
 
 function RootNavigator() {
   let colorScheme = useColorScheme();
