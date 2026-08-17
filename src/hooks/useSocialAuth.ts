@@ -18,7 +18,7 @@ export const useSocialAuth = () => {
     try {
       const redirectUrl = AuthSession.makeRedirectUri({
         scheme: "grosifyapp",
-        path: "/(home)",
+        path: "(tabs)",
       });
 
       const { createdSessionId, setActive } = await startSSOFlow({
