@@ -1,10 +1,17 @@
+import { useGroceryStore } from "@/store/grocery-store";
 import { useAuth } from "@clerk/expo";
 import { NativeTabs } from "expo-router/unstable-native-tabs";
 import { useColorScheme } from "nativewind";
+import { useEffect } from "react";
 
 export default function TabsLayout() {
   const { colorScheme } = useColorScheme();
   const { isLoaded } = useAuth();
+  const { loadItems, items } = useGroceryStore();
+
+  useEffect(() => {
+    loadItems();
+  }, []);
 
   let isDark = colorScheme === "dark";
 
